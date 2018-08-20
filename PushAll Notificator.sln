@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushAll Notificator", "PushAll Notificator\PushAll Notificator.csproj", "{8CDDBAD6-66E6-4ABC-AEF7-7ECA1A443B95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CDDBAD6-66E6-4ABC-AEF7-7ECA1A443B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CDDBAD6-66E6-4ABC-AEF7-7ECA1A443B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CDDBAD6-66E6-4ABC-AEF7-7ECA1A443B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CDDBAD6-66E6-4ABC-AEF7-7ECA1A443B95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79D46130-4BF1-466F-B6BC-FA4B2DE3959A}
+	EndGlobalSection
+EndGlobal
