@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>PushAll</RootNamespace>
+    <Authors>Дубровин Семён</Authors>
+    <PackageTags>PushAll</PackageTags>
+    <NeutralLanguage>ru</NeutralLanguage>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>PushAllNotificator</PackageId>
+  </PropertyGroup>
+
+</Project>
