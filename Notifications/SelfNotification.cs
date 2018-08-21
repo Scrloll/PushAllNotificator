@@ -4,7 +4,7 @@
     ///     Отправка самому себе.
     ///     Этот тип не требует создания канала и связан только с вашим аккаунтом. 
     /// </summary>
-    class SelfNotification : Notification
+    public class SelfNotification : Notification
     {
         /// <summary>
         ///     Инициализирует новое уведомление, предназначенное для отправки самому себе.

@@ -4,7 +4,7 @@
     ///     Отправка одному подписчику канала.
     ///     Этот тип требует канал и отправляет уведомление одному подписчику канала без учета фильтров.
     /// </summary>
-    class UnicastNotification : Notification
+    public class UnicastNotification : Notification
     {
         /// <summary>
         ///     ID пользователя, который получит уведомление.

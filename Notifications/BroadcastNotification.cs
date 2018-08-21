@@ -4,7 +4,7 @@
     ///     Отправка всем подписчикам канала.
     ///     Этот тип требует канал и отправляет уведомление всем подписчикам с учетом их фильтров.
     /// </summary>
-    class BroadcastNotification : Notification
+    public class BroadcastNotification : Notification
     {
         /// <summary>
         ///     Инициализирует новое уведомление, предназначенное для отправки всем подписчикам канала.

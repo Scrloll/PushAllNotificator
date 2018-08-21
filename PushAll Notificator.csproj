@@ -8,6 +8,11 @@
     <NeutralLanguage>ru</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>PushAllNotificator</PackageId>
+    <RepositoryUrl>https://github.com/Scrloll/PushAllNotificator</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <Description>Библиотека для отправки уведомлений через сервис PushAll.</Description>
+    <PackageProjectUrl />
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>
