@@ -18,7 +18,7 @@
             type = NotificationType.Self;
             ID = selfID;
             Key = selfKey;
-            Tittle = tittle;
+            Title = tittle;
             Text = text;
         }
     }

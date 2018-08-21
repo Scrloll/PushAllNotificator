@@ -18,7 +18,7 @@
             type = NotificationType.Broadcast;
             ID = channelID;
             Key = channelKey;
-            Tittle = tittle;
+            Title = tittle;
             Text = text;
         }
     }

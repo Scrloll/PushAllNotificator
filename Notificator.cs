@@ -1,8 +1,8 @@
 ﻿using PushAll.Notifications;
 using PushAll.Types;
 using System;
-using System.Collections.Specialized;
-using System.Net;
+using System.Collections.Generic;
+using System.Net.Http;
 
 namespace PushAll
 {
@@ -11,12 +11,12 @@ namespace PushAll
     /// </summary>
     public class Notificator
     {
-        readonly WebClient Client;
+        readonly HttpClient Client;
         readonly Uri ServiceUri;
 
         public Notificator()
         {
-            Client = new WebClient();
+            Client = new HttpClient();
             ServiceUri = new Uri("https://pushall.ru/api.php");
         }
 
@@ -24,14 +24,14 @@ namespace PushAll
         ///     Отправить уведомление.
         /// </summary>
         /// <param name="notification">Отправляемое уведомление.</param>
-        public void Send(Notification notification)
+        public async void SendAsync(Notification notification)
         {
-            NameValueCollection parameters = new NameValueCollection
+            Dictionary<string, string> parameters = new Dictionary<string, string>()
             {
                 { "type", notification.type.ToString().ToLower() },
                 { "id", notification.ID },
                 { "key", notification.Key },
-                { "title", notification.Tittle },
+                { "title", notification.Title },
                 { "text", notification.Text },
             };
             if (notification.Icon != null)
@@ -47,13 +47,13 @@ namespace PushAll
             if (notification.TTL.HasValue)
                 parameters.Add("ttl", notification.TTL.ToString());
 
-            if (notification is UnicastNotification)
+            if (notification.type == NotificationType.Unicast)
             {
                 if (notification.Filter.HasValue && ((notification.Filter == FilterType.ForcedOn) || (notification.Filter == FilterType.NotForced)))
                     parameters.Add("filter", notification.Filter.ToString());
                 parameters.Add("uid", ((UnicastNotification)notification).UserID);
             }
-            if (notification is MulticastNotification)
+            if (notification.type == NotificationType.Multicast)
             {
                 if (notification.Filter.HasValue && ((notification.Filter == FilterType.ForcedOff) || (notification.Filter == FilterType.NotForced)))
                     parameters.Add("filter", notification.Filter.ToString());
@@ -64,11 +64,12 @@ namespace PushAll
                 uids = uids.Remove(uids.Length - 1) + "]";
                 parameters.Add("uids", uids);
             }
-            if (notification is BroadcastNotification)
+            if (notification.type == NotificationType.Broadcast)
                 if (notification.Filter.HasValue && ((notification.Filter == FilterType.ForcedOff) || (notification.Filter == FilterType.NotForced)))
                     parameters.Add("filter", notification.Filter.ToString());
 
-            Client.UploadValuesAsync(ServiceUri, parameters);
+            FormUrlEncodedContent content = new FormUrlEncodedContent(parameters);
+            HttpResponseMessage response = await Client.PostAsync(ServiceUri, content);
         }
     }
 }

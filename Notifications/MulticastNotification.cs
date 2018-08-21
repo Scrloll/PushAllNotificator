@@ -24,7 +24,7 @@
             type = NotificationType.Multicast;
             ID = channelID;
             Key = channelKey;
-            Tittle = tittle;
+            Title = tittle;
             Text = text;
             UsersIDs = usersIDs;
         }

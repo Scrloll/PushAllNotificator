@@ -22,7 +22,7 @@ namespace PushAll.Notifications
         /// <summary>
         ///     Заголовок Push-уведомления. Рекомендуется 15-80 символов, не более.
         /// </summary>
-        public string Tittle;
+        public string Title;
 
         /// <summary>
         ///     Основной текст Push-уведомления. Рекомендуется 100-500 символов, не более.

@@ -21,10 +21,10 @@
         /// <param name="userID">ID пользователя, который получит уведомление.</param>
         public UnicastNotification(string channelID, string channelKey, string tittle, string text, string userID)
         {
-            type = NotificationType.Self;
+            type = NotificationType.Unicast;
             ID = channelID;
             Key = channelKey;
-            Tittle = tittle;
+            Title = tittle;
             Text = text;
             UserID = userID;
         }

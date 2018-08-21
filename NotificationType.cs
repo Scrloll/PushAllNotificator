@@ -3,7 +3,7 @@
     /// <summary>
     ///     Типы уведомлений.
     /// </summary>
-    public enum NotificationType
+    enum NotificationType
     {
         /// <summary>
         ///     Отправка всем подписчикам канала.
