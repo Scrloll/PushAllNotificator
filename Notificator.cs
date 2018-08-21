@@ -14,6 +14,9 @@ namespace PushAll
         readonly HttpClient Client;
         readonly Uri ServiceUri;
 
+        /// <summary>
+        ///     Инициализирует новый объект для отправки уведомлений.
+        /// </summary>
         public Notificator()
         {
             Client = new HttpClient();

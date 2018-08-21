@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PushAll Notificator</name>
+    </assembly>
+    <members>
+        <member name="T:PushAll.Notifications.BroadcastNotification">
+            <summary>
+                Отправка всем подписчикам канала.
+                Этот тип требует канал и отправляет уведомление всем подписчикам с учетом их фильтров.
+            </summary>
+        </member>
+        <member name="M:PushAll.Notifications.BroadcastNotification.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+                Инициализирует новое уведомление, предназначенное для отправки всем подписчикам канала.
+            </summary>
+            <param name="channelID">ID канала.</param>
+            <param name="channelKey">API-ключ канала.</param>
+            <param name="tittle">Заголовок уведомления.</param>
+            <param name="text">Текст уведомления.</param>
+        </member>
+        <member name="T:PushAll.Notifications.MulticastNotification">
+            <summary>
+                Отправка определенным подписчикам канала.
+                Этот тип требует канал и отправляет уведомление всем перечисленным подписчикам с учетом их фильтров.
+            </summary>
+        </member>
+        <member name="F:PushAll.Notifications.MulticastNotification.UsersIDs">
+            <summary>
+                Массив идентификаторов пользователей, которые получат уведомления.
+            </summary>
+        </member>
+        <member name="M:PushAll.Notifications.MulticastNotification.#ctor(System.String,System.String,System.String,System.String,System.String[])">
+            <summary>
+                Инициализирует новое уведомление, предназначенное для отправки перечисленным подписчикам канала.
+            </summary>
+            <param name="channelID">ID канала.</param>
+            <param name="channelKey">API-ключ канала.</param>
+            <param name="tittle">Заголовок уведомления.</param>
+            <param name="text">Текст уведомления.</param>
+            <param name="usersIDs">Массив идентификаторов пользователей, которые получат уведомления.</param>
+        </member>
+        <member name="T:PushAll.Notifications.Notification">
+            <summary>
+                Класс, представляющий общие для всех типов уведомлений поля.
+            </summary>
+        </member>
+        <member name="F:PushAll.Notifications.Notification.type">
+            <summary>
+                Тип уведомления.
+            </summary>
+        </member>
+        <member name="F:PushAll.Notifications.Notification.ID">
+            <summary>
+                В случае с SelfAPI это ID вашего аккаунта, в случае с другими типами - ID вашего канала.
+            </summary>
+        </member>
+        <member name="F:PushAll.Notifications.Notification.Key">
+            <summary>
+                В случае с SelfAPI это ключ вашего аккаунта, в случае с другими типами - ключ вашего канала.
+            </summary>
+        </member>
+        <member name="F:PushAll.Notifications.Notification.Title">
+            <summary>
+                Заголовок Push-уведомления. Рекомендуется 15-80 символов, не более.
+            </summary>
+        </member>
+        <member name="F:PushAll.Notifications.Notification.Text">
+            <summary>
+                Основной текст Push-уведомления. Рекомендуется 100-500 символов, не более.
+            </summary>
+        </member>
+        <member name="F:PushAll.Notifications.Notification.Icon">
+            <summary>
+                Иконка уведомления.
+                Не рекомендуется использовать, по-умолчанию используется иконка канала, которая кэшируется на устройстве.
+            </summary>
+        </member>
+        <member name="F:PushAll.Notifications.Notification.Url">
+            <summary>
+                Адрес по которому будет осуществлен переход по клику.
+                Вводить с "http://" или "https://".
+                При желании можно использовать адреса вида tel: или mailto:
+            </summary>
+        </member>
+        <member name="F:PushAll.Notifications.Notification.Hidden">
+            <summary>
+                Скрыть уведомление.
+            </summary>
+        </member>
+        <member name="F:PushAll.Notifications.Notification.Encode">
+            <summary>
+                Ваша кодировка. (не обязательно).
+            </summary>
+            <example>cp1251</example>
+        </member>
+        <member name="F:PushAll.Notifications.Notification.Priority">
+            <summary>
+                Приоритет. Это очень важный параметр, которому надо уделить внимание.
+                По возможности используйте <see cref="F:PushAll.Types.PriorityType.NotImportant"/>,
+                иногда можно <see cref="F:PushAll.Types.PriorityType.Default"/>,
+                используйте <see cref="F:PushAll.Types.PriorityType.Important"/> в случае крайней необходимости.
+                Скорее всего в будущем для broadcast и/или multicast высокий приоритет будет запрещен.
+            </summary>
+        </member>
+        <member name="F:PushAll.Notifications.Notification.TTL">
+            <summary>
+                Время жизни в секундах.
+                По-умолчанию 25 дней - 2160000 секунд, или тот что выбран у вас в настройке канала, или тот что указан в ограничениях вашей категории канала.
+                Выбирайте TTL с умом - чем ближе TTL к времени актуальности информации, чем ниже навязчивость оповещений.
+            </summary>
+        </member>
+        <member name="F:PushAll.Notifications.Notification.Filter">
+            <summary>
+                Управление фильтрацией.
+                Этот параметр ведет себя по разному для разных типов уведомлений.
+                Для SelfAPI не работает.
+                Для Broadcast и Multicast можно передать filter=<see cref="F:PushAll.Types.FilterType.ForcedOff"/>.
+                Не используйте этот метод слишком часто, т.к. пользователи рассчитывают на то, что фильтры будут всегда работать.
+                Это можно использовать, например если вам нужно отправить всем важное сообщение о технических работах, или изменении в настройках вашего канала.
+                Для Unicast можно передать filter=<see cref="F:PushAll.Types.FilterType.ForcedOn"/> и принудительно включить фильтрацию, полезно, если вы используете множественные Unicast и хотите при этом задействовать встроенную фильтрацию PushAll.
+            </summary>
+        </member>
+        <member name="T:PushAll.Notifications.SelfNotification">
+            <summary>
+                Отправка самому себе.
+                Этот тип не требует создания канала и связан только с вашим аккаунтом. 
+            </summary>
+        </member>
+        <member name="M:PushAll.Notifications.SelfNotification.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+                Инициализирует новое уведомление, предназначенное для отправки самому себе.
+            </summary>
+            <param name="selfID">ID вашего аккаунта.</param>
+            <param name="selfKey">API-ключ вашего аккаунта.</param>
+            <param name="tittle">Заголовок уведомления.</param>
+            <param name="text">Текст уведомления.</param>
+        </member>
+        <member name="T:PushAll.Notifications.UnicastNotification">
+            <summary>
+                Отправка одному подписчику канала.
+                Этот тип требует канал и отправляет уведомление одному подписчику канала без учета фильтров.
+            </summary>
+        </member>
+        <member name="F:PushAll.Notifications.UnicastNotification.UserID">
+            <summary>
+                ID пользователя, который получит уведомление.
+            </summary>
+        </member>
+        <member name="M:PushAll.Notifications.UnicastNotification.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+                Инициализирует новое уведомление, предназначенное для отправки одному подписчику канала.
+            </summary>
+            <param name="channelID">ID канала.</param>
+            <param name="channelKey">API-ключ канала.</param>
+            <param name="tittle">Заголовок уведомления.</param>
+            <param name="text">Текст уведомления.</param>
+            <param name="userID">ID пользователя, который получит уведомление.</param>
+        </member>
+        <member name="T:PushAll.NotificationType">
+            <summary>
+                Типы уведомлений.
+            </summary>
+        </member>
+        <member name="F:PushAll.NotificationType.Broadcast">
+            <summary>
+                Отправка всем подписчикам канала.
+                Этот тип требует канал и отправляет уведомление всем подписчикам с учетом их фильтров.
+            </summary>
+        </member>
+        <member name="F:PushAll.NotificationType.Multicast">
+            <summary>
+                Отправка определенным подписчикам канала.
+                Этот тип требует канал и отправляет уведомление всем перечисленным подписчикам с учетом их фильтров.
+            </summary>
+        </member>
+        <member name="F:PushAll.NotificationType.Unicast">
+            <summary>
+                Отправка одному подписчику канала.
+                Этот тип требует канал и отправляет уведомление одному подписчику канала без учета фильтров.
+            </summary>
+        </member>
+        <member name="F:PushAll.NotificationType.Self">
+            <summary>
+                Отправка самому себе.
+                Этот тип не требует создания канала и связан только с вашим аккаунтом. 
+            </summary>
+        </member>
+        <member name="T:PushAll.Notificator">
+            <summary>
+                Класс для отправки уведомлений пользователю.
+            </summary>
+        </member>
+        <member name="M:PushAll.Notificator.#ctor">
+            <summary>
+                Инициализирует новый объект для отправки уведомлений.
+            </summary>
+        </member>
+        <member name="M:PushAll.Notificator.SendAsync(PushAll.Notifications.Notification)">
+            <summary>
+                Отправить уведомление.
+            </summary>
+            <param name="notification">Отправляемое уведомление.</param>
+        </member>
+        <member name="T:PushAll.Types.FilterType">
+            <summary>
+                Отвечает за принудительную фильтрацию уведомлений.
+            </summary>
+        </member>
+        <member name="F:PushAll.Types.FilterType.ForcedOff">
+            <summary>
+                Фильтрация будет выключена принудительно.
+            </summary>
+        </member>
+        <member name="F:PushAll.Types.FilterType.NotForced">
+            <summary>
+                Фильтрация зависит от настроек получателей.
+            </summary>
+        </member>
+        <member name="F:PushAll.Types.FilterType.ForcedOn">
+            <summary>
+                Принудительно включить фильтрацию.
+                Полезно, если вы используете множественные Unicast и хотите при этом задействовать встроенную фильтрацию PushAll.
+            </summary>
+        </member>
+        <member name="T:PushAll.Types.HideType">
+            <summary>
+                Отвечает за сокрытие уведомления.
+            </summary>
+        </member>
+        <member name="F:PushAll.Types.HideType.Immediately">
+            <summary>
+                Сразу скрыть уведомление из истории пользователей.
+            </summary>
+        </member>
+        <member name="F:PushAll.Types.HideType.FromTape">
+            <summary>
+                Скрыть только из ленты.
+            </summary>
+        </member>
+        <member name="F:PushAll.Types.HideType.Not">
+            <summary>
+                 Не скрывать (по-умолчанию 0).
+            </summary>
+        </member>
+        <member name="T:PushAll.Types.PriorityType">
+            <summary>
+                Типы приоритетов.
+            </summary>
+        </member>
+        <member name="F:PushAll.Types.PriorityType.Default">
+            <summary>
+                По-умолчанию.
+            </summary>
+        </member>
+        <member name="F:PushAll.Types.PriorityType.NotImportant">
+            <summary>
+                Не важные, менее заметны, не будят устройство.
+            </summary>
+        </member>
+        <member name="F:PushAll.Types.PriorityType.Important">
+            <summary>
+                Более заметные, быстрее сажают аккумулятор.
+            </summary>
+        </member>
+    </members>
+</doc>

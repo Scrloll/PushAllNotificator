@@ -12,7 +12,12 @@
     <RepositoryType>Git</RepositoryType>
     <Description>Библиотека для отправки уведомлений через сервис PushAll.</Description>
     <PackageProjectUrl />
-    <Version>1.0.1</Version>
+    <Version>1.0.3</Version>
+    <PackageReleaseNotes>Реализована отправка через Http</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\hp4520\source\repos\PushAll Notificator\PushAll Notificator\PushAll Notificator.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>

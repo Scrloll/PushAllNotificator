@@ -2,6 +2,9 @@
 
 namespace PushAll.Notifications
 {
+    /// <summary>
+    ///     Класс, представляющий общие для всех типов уведомлений поля.
+    /// </summary>
     public abstract class Notification
     {
         /// <summary>
