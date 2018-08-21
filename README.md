@@ -23,7 +23,7 @@ UnicastNotification notif = new UnicastNotification("1", "0077f8aba41b8f6e0030e9
 	Priority = Types.PriorityType.Important
 };
 ```
-5. Отправляйте уведомления через метод Send
+5. Отправляйте уведомления через метод SendAsync
 ```C#
-notificator.Send(notif);
+await notificator.SendAsync(notif);
 ```
