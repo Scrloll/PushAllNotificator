@@ -13,7 +13,7 @@
         /// <param name="selfKey">API-ключ вашего аккаунта.</param>
         /// <param name="tittle">Заголовок уведомления.</param>
         /// <param name="text">Текст уведомления.</param>
-        public SelfNotification(string selfID, string selfKey, string tittle, string text)
+        public SelfNotification(long selfID, string selfKey, string tittle, string text)
         {
             type = NotificationType.Self;
             ID = selfID;

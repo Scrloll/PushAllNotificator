@@ -9,7 +9,7 @@
         /// <summary>
         ///     Массив идентификаторов пользователей, которые получат уведомления.
         /// </summary>
-        public string[] UsersIDs;
+        public long[] UsersIDs;
 
         /// <summary>
         ///     Инициализирует новое уведомление, предназначенное для отправки перечисленным подписчикам канала.
@@ -19,7 +19,7 @@
         /// <param name="tittle">Заголовок уведомления.</param>
         /// <param name="text">Текст уведомления.</param>
         /// <param name="usersIDs">Массив идентификаторов пользователей, которые получат уведомления.</param>
-        public MulticastNotification(string channelID, string channelKey, string tittle, string text, string[] usersIDs)
+        public MulticastNotification(long channelID, string channelKey, string tittle, string text, long[] usersIDs)
         {
             type = NotificationType.Multicast;
             ID = channelID;

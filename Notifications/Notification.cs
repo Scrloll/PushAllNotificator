@@ -1,4 +1,5 @@
 ﻿using PushAll.Types;
+using System;
 
 namespace PushAll.Notifications
 {
@@ -15,7 +16,7 @@ namespace PushAll.Notifications
         /// <summary>
         ///     В случае с SelfAPI это ID вашего аккаунта, в случае с другими типами - ID вашего канала.
         /// </summary>
-        public string ID;
+        public long ID;
 
         /// <summary>
         ///     В случае с SelfAPI это ключ вашего аккаунта, в случае с другими типами - ключ вашего канала.

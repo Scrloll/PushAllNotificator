@@ -9,7 +9,7 @@
         /// <summary>
         ///     ID пользователя, который получит уведомление.
         /// </summary>
-        public string UserID;
+        public long UserID;
 
         /// <summary>
         ///     Инициализирует новое уведомление, предназначенное для отправки одному подписчику канала.
@@ -19,7 +19,7 @@
         /// <param name="tittle">Заголовок уведомления.</param>
         /// <param name="text">Текст уведомления.</param>
         /// <param name="userID">ID пользователя, который получит уведомление.</param>
-        public UnicastNotification(string channelID, string channelKey, string tittle, string text, string userID)
+        public UnicastNotification(long channelID, string channelKey, string tittle, string text, long userID)
         {
             type = NotificationType.Unicast;
             ID = channelID;

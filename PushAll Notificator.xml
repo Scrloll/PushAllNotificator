@@ -10,7 +10,7 @@
                 Этот тип требует канал и отправляет уведомление всем подписчикам с учетом их фильтров.
             </summary>
         </member>
-        <member name="M:PushAll.Notifications.BroadcastNotification.#ctor(System.String,System.String,System.String,System.String)">
+        <member name="M:PushAll.Notifications.BroadcastNotification.#ctor(System.Int64,System.String,System.String,System.String)">
             <summary>
                 Инициализирует новое уведомление, предназначенное для отправки всем подписчикам канала.
             </summary>
@@ -30,7 +30,7 @@
                 Массив идентификаторов пользователей, которые получат уведомления.
             </summary>
         </member>
-        <member name="M:PushAll.Notifications.MulticastNotification.#ctor(System.String,System.String,System.String,System.String,System.String[])">
+        <member name="M:PushAll.Notifications.MulticastNotification.#ctor(System.Int64,System.String,System.String,System.String,System.Int64[])">
             <summary>
                 Инициализирует новое уведомление, предназначенное для отправки перечисленным подписчикам канала.
             </summary>
@@ -127,7 +127,7 @@
                 Этот тип не требует создания канала и связан только с вашим аккаунтом. 
             </summary>
         </member>
-        <member name="M:PushAll.Notifications.SelfNotification.#ctor(System.String,System.String,System.String,System.String)">
+        <member name="M:PushAll.Notifications.SelfNotification.#ctor(System.Int64,System.String,System.String,System.String)">
             <summary>
                 Инициализирует новое уведомление, предназначенное для отправки самому себе.
             </summary>
@@ -147,7 +147,7 @@
                 ID пользователя, который получит уведомление.
             </summary>
         </member>
-        <member name="M:PushAll.Notifications.UnicastNotification.#ctor(System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:PushAll.Notifications.UnicastNotification.#ctor(System.Int64,System.String,System.String,System.String,System.Int64)">
             <summary>
                 Инициализирует новое уведомление, предназначенное для отправки одному подписчику канала.
             </summary>

@@ -32,7 +32,7 @@ namespace PushAll
             Dictionary<string, string> parameters = new Dictionary<string, string>()
             {
                 { "type", notification.type.ToString().ToLower() },
-                { "id", notification.ID },
+                { "id", notification.ID.ToString() },
                 { "key", notification.Key },
                 { "title", notification.Title },
                 { "text", notification.Text },
@@ -54,7 +54,7 @@ namespace PushAll
             {
                 if (notification.Filter.HasValue && ((notification.Filter == FilterType.ForcedOn) || (notification.Filter == FilterType.NotForced)))
                     parameters.Add("filter", notification.Filter.ToString());
-                parameters.Add("uid", ((UnicastNotification)notification).UserID);
+                parameters.Add("uid", ((UnicastNotification)notification).UserID.ToString());
             }
             if (notification.type == NotificationType.Multicast)
             {
@@ -62,8 +62,8 @@ namespace PushAll
                     parameters.Add("filter", notification.Filter.ToString());
 
                 string uids = "[";
-                foreach (string uid in ((MulticastNotification)notification).UsersIDs)
-                    uids += uid + ",";
+                foreach (long uid in ((MulticastNotification)notification).UsersIDs)
+                    uids += uid.ToString() + ",";
                 uids = uids.Remove(uids.Length - 1) + "]";
                 parameters.Add("uids", uids);
             }

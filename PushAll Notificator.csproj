@@ -12,8 +12,8 @@
     <RepositoryType>Git</RepositoryType>
     <Description>Библиотека для отправки уведомлений через сервис PushAll.</Description>
     <PackageProjectUrl />
-    <Version>1.0.3</Version>
-    <PackageReleaseNotes>Реализована отправка через Http</PackageReleaseNotes>
+    <Version>1.0.4</Version>
+    <PackageReleaseNotes>Тип ID сменен на long</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
