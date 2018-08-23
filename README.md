@@ -17,7 +17,7 @@ Notificator notificator = new Notificator();
 ```
 4. Инициализируйте переменную необходимого уведомления
 ```C#
-UnicastNotification notif = new UnicastNotification("1", "0077f8aba41b8f6e0030e9b2b0b23f7b", "Заголовок", "Текст", "2")
+UnicastNotification notif = new UnicastNotification(1, "0077f8aba41b8f6e0030e9b2b0b23f7b", "Заголовок", "Текст", 2)
 {
 	Url = "mailto:Example@mail.ru",
 	Priority = Types.PriorityType.Important
